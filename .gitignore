@@ -1,0 +1,6 @@
+**/*~
+**/.stack-work
+**/.stack/
+**/tensorflow-mnist-input-data/data/*.gz
+**/.DS_Store
+**/node_modules

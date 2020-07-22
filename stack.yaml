@@ -1,0 +1,28 @@
+resolver: lts-16.4
+
+packages:
+  - .
+
+extra-deps:
+  - snappy-framing-0.1.2
+  - snappy-0.2.0.2
+  - git: ./tensorflow
+    commit: fcb5e31b5c9c5b200654bc2cc958cf920ce89ef7
+    subdirs:
+      - tensorflow
+      - tensorflow-core-ops
+      - tensorflow-logging
+      - tensorflow-mnist
+      - tensorflow-mnist-input-data
+      - tensorflow-opgen
+      - tensorflow-ops
+      - tensorflow-proto
+      - tensorflow-records
+      - tensorflow-records-conduit
+      - tensorflow-test
+
+extra-lib-dirs:
+  - /usr/local/lib
+
+extra-include-dirs:
+  - /usr/local/include

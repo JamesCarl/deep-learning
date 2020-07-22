@@ -1,0 +1,50 @@
+library:
+  source-dirs: src
+tests:
+  deep-learning-test:
+    source-dirs: test
+    main: Spec.hs
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - deep-learning
+copyright: 2020 Author name here
+maintainer: example@example.com
+dependencies:
+- array
+- base >= 4.7 && < 5
+- HUnit
+- random
+- tensorflow
+- tensorflow-core-ops
+- tensorflow-logging
+- tensorflow-opgen
+- tensorflow-ops
+- tensorflow-proto
+- tensorflow-records
+- tensorflow-records-conduit
+- tensorflow-test
+- text
+- proto-lens
+- vector
+name: deep-learning
+version: 0.1.0.0
+extra-source-files:
+- README.md
+- ChangeLog.md
+author: Author name here
+github: githubuser/deep-learning
+license: BSD3
+executables:
+  deep-learning-exe:
+    source-dirs: app
+    main: Main.hs
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - deep-learning
+description: Please see the README on GitHub at <https://github.com/githubuser/deep-learning#readme>
