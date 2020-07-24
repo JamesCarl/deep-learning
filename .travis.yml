@@ -15,6 +15,7 @@ script:
 - sudo mv protoc3/include/* /usr/local/include/
 - sudo apt install cmake
 - git clone https://github.com/google/snappy.git
+- cd snappy
 - git checkout tags/1.1.6
 - mkdir build && cd build
 - cmake ../
