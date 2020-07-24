@@ -9,6 +9,20 @@ before_install:
 - export PATH=$HOME/.local/bin:$PATH
 - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
 script:
+- curl -OL https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
+- unzip protoc-3.2.0-linux-x86_64.zip -d protoc3
+- sudo mv protoc3/bin/* /usr/local/bin/
+- sudo mv protoc3/include/* /usr/local/include/
+- sudo apt install cmake
+- git clone https://github.com/google/snappy.git
+- git checkout tags/1.1.6
+- mkdir build && cd build
+- cmake ../
+- make
+- sudo cp ../snappy.h /usr/local/include/
+- sudo cp snappy-stubs-public.h /usr/local/include/ >> sudo cp ../snappy-sinksource.h /usr/local/include/ >> sudo cp libsnappy.so /usr/local/lib/
+- curl https://storage.googleapis.com/tensorflow/libtensorflow/ libtensorflow-cpu-linux-x86_64-1.0.0.tar.gz > libtensorflow.tar.gz >> sudo tar zxf libtensorflow.tar.gz -C /usr/local
+- sudo ldconfig
 - stack --install-ghc --no-haddock-deps haddock
 - stack test
 cache:
